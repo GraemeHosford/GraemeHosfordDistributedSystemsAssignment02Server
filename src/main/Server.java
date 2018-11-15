@@ -23,7 +23,7 @@ public class Server {
                 ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
                 ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
 
-                ClientThread clientThread = new ClientThread(clientSocket, ois, oos);
+                ClientThread clientThread = new ClientThread(ois, oos);
                 clientThread.start();
             }
 

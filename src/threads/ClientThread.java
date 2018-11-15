@@ -6,13 +6,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 
 public class ClientThread extends Thread {
-
-    private Socket clientSocket;
 
     private static final int GET_FILE_NAMES = 1;
     private static final int CHECK_FOR_CHANGE = 2;
@@ -24,8 +21,7 @@ public class ClientThread extends Thread {
     private ObjectInputStream ois;
     private ObjectOutputStream oos;
 
-    public ClientThread(Socket clientSocket, ObjectInputStream ois, ObjectOutputStream oos) {
-        this.clientSocket = clientSocket;
+    public ClientThread(ObjectInputStream ois, ObjectOutputStream oos) {
         this.ois = ois;
         this.oos = oos;
     }
